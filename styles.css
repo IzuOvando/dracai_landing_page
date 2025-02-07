@@ -1,59 +1,109 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 body {
-    background: linear-gradient(135deg, #0d0d0d, #1a1a2e);
     color: white;
     font-family: 'Orbitron', sans-serif;
-    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Hero Section with Transparent Background (Gradient is now on Canvas) */
+.hero {
+    position: relative;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    width: 90%;
-    max-width: 800px;
-    padding: 20px;
     text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
+    overflow: hidden;
 }
 
-/* Responsive logo */
+/* Fullscreen Canvas for Particles & Gradient */
+#animated-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+.content {
+    position: relative;
+    z-index: 1;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
 .logo {
-    width: 60%;
-    max-width: 400px;
-    margin-bottom: 20px;
+    width: 70%;
+    max-width: 450px;
     animation: glow 1.5s infinite alternate;
 }
 
-/* Adjust logo size for mobile */
 @media (max-width: 768px) {
     .logo {
-        width: 50%;
-        max-width: 180px;
+        width: 85%;
+        max-width: 300px;
     }
 }
 
-/* Headline */
-h1 {
+.section-title {
+    font-size: 1.8em;
+    margin-top: 20px;
+    color: #00aaff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.purpose {
+    font-size: 1.3em;
+    max-width: 700px;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+/* Info Section */
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(2,0,36);
+    background: linear-gradient(4deg, rgba(5, 5, 20, 1) 0%, rgba(15, 15, 60, 1) 40%, rgba(20, 30, 70, 1) 80%);
+    padding: 50px 5%;
+}
+
+.info-content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text-container {
+    flex: 1;
+    max-width: 50%;
+    text-align: left;
+    padding: 20px;
+}
+
+.text-container h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
-    text-transform: uppercase;
 }
 
-/* Text */
-p {
+.text-container p {
     font-size: 1.2em;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
-/* Contact Button */
 .contact-button {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 15px 30px;
     background: #00aaff;
     color: white;
@@ -69,18 +119,55 @@ p {
     box-shadow: 0px 0px 25px rgba(0, 170, 255, 1);
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
+.image-container {
+    flex: 1;
+    max-width: 50%;
+    text-align: right;
+}
+
+/* Soft Edges Effect */
+/* Soft Circular Edges Effect */
+/* Soft Circular Edges Effect */
+.ai-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 50%; /* Circular shape */
+    
+    /* Soft fade effect */
+    -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0) 100%);
+    mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0) 100%);
+    
+    /* Additional soft blur effect */
+    filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.5));
+    
+    object-fit: cover; /* Ensures the image fits without distortion */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .info-content {
+        flex-direction: column;
+        text-align: center;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .text-container, .image-container {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .image-container {
+        margin-bottom: 20px;
+    }
+
+    .ai-image {
+        max-width: 80%;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
     }
 }
 
+/* Glow Animation */
 @keyframes glow {
     from {
         filter: drop-shadow(0px 0px 5px #00aaff);
@@ -89,3 +176,4 @@ p {
         filter: drop-shadow(0px 0px 15px #00aaff);
     }
 }
+

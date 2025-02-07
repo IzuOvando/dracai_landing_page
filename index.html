@@ -5,17 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dracai - Coming Soon</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 </head>
 <body>
-    <div class="container">
-        <picture>
-            <source srcset="/assets/images/Isotipo.png" media="(max-width: 768px)">
-            <img src="/assets/images/Logo.png" alt="Dracai Logo" class="logo">
-        </picture>
-        <h1>Soluciones de IA</h1>
-        <p>Aprovecha el valor de tus datos obteniendo insights valiosos con herramientas de IA, optimizando la toma de decisiones en tu negocio.</p>
-        <a href="mailto:erick.garcia@dracai.com.mx" class="contact-button">Contactanos</a>
-    </div>
+
+    <!-- Hero Section with Animated Background -->
+    <section class="hero">
+        <canvas id="animated-bg"></canvas>
+        <div class="content">
+            <picture>
+                <source srcset="/assets/images/Isotipo.png" media="(max-width: 768px)">
+                <img src="/assets/images/Logo.png" alt="Dracai Logo" class="logo">
+            </picture>
+            <h2 class="section-title">Nuestro Propósito</h2>
+            <p class="purpose">
+                Redefinimos la toma de decisiones para construir un futuro más inteligente al servicio de la humanidad utilizando la inteligencia artificial.
+            </p>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="info">
+        <div class="info-content">
+            <div class="text-container">
+                <h1>Soluciones de IA</h1>
+                <p>
+                    Aprovecha el valor de tus datos obteniendo insights valiosos con herramientas de IA, optimizando la toma de decisiones en tu negocio.
+                </p>
+                <a href="mailto:erick.garcia@dracai.com.mx" class="contact-button">Contáctanos</a>
+            </div>
+            <div class="image-container">
+                <img src="/assets/images/robot.webp" alt="Inteligencia Artificial" class="ai-image">
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
