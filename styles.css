@@ -6,17 +6,17 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-/* Hero Section with Transparent Background (Gradient is now on Canvas) */
-.hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
+/* Parallax Container */
+#parallax-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 /* Fullscreen Canvas for Particles & Gradient */
@@ -26,9 +26,17 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
 }
 
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
 
 .content {
     position: relative;
@@ -41,13 +49,6 @@ body {
     width: 70%;
     max-width: 450px;
     animation: glow 1.5s infinite alternate;
-}
-
-@media (max-width: 768px) {
-    .logo {
-        width: 85%;
-        max-width: 300px;
-    }
 }
 
 .section-title {
@@ -67,28 +68,18 @@ body {
 
 /* Info Section */
 .info {
+    height: 100vh; /* Full-screen height */
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(2,0,36);
-    background: linear-gradient(4deg, rgba(5, 5, 20, 1) 0%, rgba(15, 15, 60, 1) 40%, rgba(20, 30, 70, 1) 80%);
-    padding: 50px 5%;
+    text-align: center;
 }
 
+/* Smooth Parallax Effect */
 .info-content {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.text-container {
-    flex: 1;
+    padding: 40px;
+    border-radius: 15px;
     max-width: 50%;
-    text-align: left;
-    padding: 20px;
 }
 
 .text-container h1 {
@@ -119,54 +110,6 @@ body {
     box-shadow: 0px 0px 25px rgba(0, 170, 255, 1);
 }
 
-.image-container {
-    flex: 1;
-    max-width: 50%;
-    text-align: right;
-}
-
-/* Soft Edges Effect */
-/* Soft Circular Edges Effect */
-/* Soft Circular Edges Effect */
-.ai-image {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 50%; /* Circular shape */
-    
-    /* Soft fade effect */
-    -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0) 100%);
-    mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0) 100%);
-    
-    /* Additional soft blur effect */
-    filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.5));
-    
-    object-fit: cover; /* Ensures the image fits without distortion */
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .info-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .text-container, .image-container {
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .image-container {
-        margin-bottom: 20px;
-    }
-
-    .ai-image {
-        max-width: 80%;
-        margin-top: 40px;
-        margin-bottom: 40px;
-
-    }
-}
-
 /* Glow Animation */
 @keyframes glow {
     from {
@@ -174,6 +117,17 @@ body {
     }
     to {
         filter: drop-shadow(0px 0px 15px #00aaff);
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 85%;
+        max-width: 300px;
+    }
+
+    .info-content {
+        max-width: 80%;
     }
 }
 
