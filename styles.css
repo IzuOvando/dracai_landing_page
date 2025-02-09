@@ -5,11 +5,12 @@ body {
     font-family: 'Orbitron', sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow: hidden;
     scroll-behavior: smooth;
+    height: 100vh;  /* Ensure body height */
 }
 
-/* Parallax Container */
+/* Parallax Background */
 #parallax-container {
     position: fixed;
     top: 0;
@@ -28,6 +29,23 @@ body {
     height: 100%;
 }
 
+/* Scroll Snapping - Improved for Mobile */
+.sections-wrapper {
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;  /* Prevent scroll issues on mobile */
+    height: 100vh;
+}
+
+/* Each Section Snaps Properly */
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    scroll-snap-align: start;
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -35,14 +53,13 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden;
 }
 
 .content {
     position: relative;
     z-index: 1;
-    margin-left: 3%;
-    margin-right: 3%;
+    margin: 0 auto;  /* Center content */
+    max-width: 80%;   /* Prevent text overflow */
 }
 
 .logo {
@@ -60,7 +77,7 @@ body {
 }
 
 .purpose {
-    font-size: 1.3em;
+    font-size: 1.3rem;
     max-width: 700px;
     opacity: 0.9;
     margin-top: 10px;
@@ -68,28 +85,16 @@ body {
 
 /* Info Section */
 .info {
-    height: 100vh; /* Full-screen height */
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
 }
 
-/* Smooth Parallax Effect */
 .info-content {
     padding: 40px;
     border-radius: 15px;
     max-width: 50%;
-}
-
-.text-container h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.text-container p {
-    font-size: 1.2em;
-    opacity: 0.9;
+    font-size: 1.3em;
 }
 
 .contact-button {
@@ -110,6 +115,29 @@ body {
     box-shadow: 0px 0px 25px rgba(0, 170, 255, 1);
 }
 
+/* More Information Section - Adjustments for Centering */
+.more-info {
+    background: rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+    padding: 20px;   /* Adjust padding to fit properly */
+    display: flex;
+    justify-content: center;   /* Centering text vertically */
+    align-items: center;
+    height: 100vh;   /* Ensure it fits the screen */
+}
+
+.small-text {
+    font-size: 1.5em;
+    opacity: 0.8;
+}
+
+.big-text {
+    font-size: 4em;
+    letter-spacing: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 /* Glow Animation */
 @keyframes glow {
     from {
@@ -120,6 +148,7 @@ body {
     }
 }
 
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     .logo {
         width: 85%;
@@ -129,5 +158,18 @@ body {
     .info-content {
         max-width: 80%;
     }
-}
 
+    .big-text {
+        font-size: 1.3em;
+        letter-spacing: 10px;
+    }
+
+    .sections-wrapper {
+        height: 100vh;   /* Ensure full height scrolling on mobile */
+        overflow-y: scroll;
+    }
+
+    .content, .more-info {
+        padding: 10px;   /* Avoid text getting cut off */
+    }
+}
